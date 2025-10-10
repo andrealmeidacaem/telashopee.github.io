@@ -5,114 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TelaShopee Nacional</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f9f9f9;
-      color: #333;
-      text-align: center;
-    }
-
-    header {
-      background-color: #ff6600;
-      color: white;
-      padding: 25px 20px;
-    }
-
+    body { font-family: Arial, sans-serif; margin: 0; background: #f9f9f9; color: #333; text-align: center; }
+    header { background: #ff6600; color: white; padding: 25px 20px; }
     header h1 { margin: 0; font-size: 2em; }
     header p { margin: 5px 0 0; font-size: 1.1em; }
 
-    .catalogo {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 25px;
-      padding: 25px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
+    .catalogo { display: grid; grid-template-columns: 1fr; gap: 25px; padding: 25px; max-width: 900px; margin: 0 auto; }
     @media (min-width: 700px) { .catalogo { grid-template-columns: 1fr 1fr 1fr; } }
 
     .produto {
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      padding: 20px;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
+      background: white; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      padding: 20px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
     }
-
     .produto:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.2); }
-
     .produto img { width: 100%; border-radius: 15px; max-height: 250px; object-fit: cover; }
     .produto h2 { font-size: 1.4em; margin: 15px 0 10px; color: #222; text-decoration: underline; }
     .produto p { font-size: 1em; color: #555; margin-bottom: 15px; }
     .preco { font-weight: bold; color: #ff6600; font-size: 1.3em; margin-bottom: 15px; }
 
-    .btn-whatsapp, .btn-compra {
-      display: inline-block; text-decoration: none; font-weight: bold;
-      border-radius: 10px; padding: 12px 20px; margin: 5px 0; transition: background 0.2s, transform 0.2s;
-    }
-
-    .btn-whatsapp { background-color: #25d366; color: white; }
-    .btn-whatsapp:hover { background-color: #1ebe5d; transform: scale(1.05); }
-
-    .btn-compra { background-color: #ff6600; color: white; font-size: 1.1em; border: 2px solid #ff6600; }
-    .btn-compra:hover { background-color: white; color: #ff6600; transform: scale(1.05); }
+    .btn-compra { display: inline-block; text-decoration: none; font-weight: bold; border-radius: 10px;
+      padding: 12px 20px; margin: 5px 0; transition: background 0.2s, transform 0.2s;
+      background-color: #ff6600; color: white; font-size: 1.1em; border: 2px solid #ff6600; }
+    .btn-compra:hover { background: white; color: #ff6600; transform: scale(1.05); }
 
     footer {
-      background-color: #ff6600;
-      color: white;
-      padding: 20px 10px;
-      margin-top: 30px;
-      font-size: 0.95em;
+      background-color: #ff6600; color: white; padding: 25px 15px; font-size: 1em; display: flex;
+      flex-direction: column; align-items: flex-start; gap: 10px;
     }
 
-    .footer-info {
-      display: flex; flex-direction: column; gap: 8px; max-width: 800px; margin: 0 auto;
-    }
+    .footer-info { font-weight: bold; font-size: 1.1em; display: flex; flex-direction: column; gap: 5px; }
+    .footer-left { margin-bottom: 10px; }
+    .footer-left a { background: #25d366; color: white; padding: 10px 15px; border-radius: 8px; text-decoration: none; font-weight: bold; }
 
-    @media (min-width: 600px) { .footer-info { flex-direction: row; justify-content: space-around; } }
-
-    /* MODAL */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.6);
-      align-items: center; justify-content: center;
-      padding: 20px;
-    }
-
-    .modal-content {
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      max-width: 500px;
-      width: 100%;
-      text-align: center;
-      position: relative;
-      animation: fadeIn 0.3s;
-    }
-
-    .modal-content img { max-width: 100%; border-radius: 15px; margin-bottom: 15px; cursor: pointer; }
-    .modal-content h1 { color: #ff6600; margin-bottom: 10px; font-size: 1.8em; cursor: pointer; }
-    .modal-content p { font-size: 1.1em; color: #555; margin-bottom: 15px; }
-    .modal-content .preco { font-size: 1.5em; margin-bottom: 20px; }
-
-    .close {
-      position: absolute;
-      top: 10px; right: 15px;
-      font-size: 2em;
-      font-weight: bold;
-      color: #333;
-      cursor: pointer;
-    }
-
-    @keyframes fadeIn { from {opacity:0} to {opacity:1} }
+    @media(min-width: 600px){ footer { flex-direction: row; justify-content: space-between; align-items: center; } }
   </style>
 </head>
 <body>
@@ -123,14 +48,13 @@
 </header>
 
 <section class="catalogo">
-
   <!-- Produto 1 -->
   <div class="produto">
     <a href="vedador.html"><img src="vedador.jpg.jpeg" alt="Mini Vedador de Alimentos"></a>
     <a href="vedador.html"><h2>Mini Vedador de Alimentos USB</h2></a>
     <p>Selou, tá fechado! Evite desperdício e guarde alimentos em segundos.</p>
     <div class="preco">R$ 59,90</div>
-    <button class="btn-compra" onclick="abrirModal('modal1')">🛒 Ver Detalhes</button>
+    <a class="btn-compra" href="vedador.html">🛒 Ver Detalhes</a>
   </div>
 
   <!-- Produto 2 -->
@@ -139,7 +63,7 @@
     <a href="cortador.html"><h2>Cortador de Legumes 7 em 1</h2></a>
     <p>Corte, fatie e prepare tudo com praticidade e segurança.</p>
     <div class="preco">R$ 79,90</div>
-    <button class="btn-compra" onclick="abrirModal('modal2')">🛒 Ver Detalhes</button>
+    <a class="btn-compra" href="cortador.html">🛒 Ver Detalhes</a>
   </div>
 
   <!-- Produto 3 -->
@@ -148,103 +72,21 @@
     <a href="suporte.html"><h2>Suporte Giratório 360º</h2></a>
     <p>Grave vídeos, assista filmes e use o GPS com liberdade total.</p>
     <div class="preco">R$ 49,90</div>
-    <button class="btn-compra" onclick="abrirModal('modal3')">🛒 Ver Detalhes</button>
+    <a class="btn-compra" href="suporte.html">🛒 Ver Detalhes</a>
   </div>
-
 </section>
 
-<!-- MODAIS -->
-<div id="modal1" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="fecharModal('modal1')">&times;</span>
-    <h1 onclick="window.location.href='vedador.html'">Mini Vedador de Alimentos USB</h1>
-    <img src="vedador.jpg.jpeg" alt="Mini Vedador de Alimentos" onclick="window.location.href='vedador.html'">
-    <p>Mantenha seus alimentos sempre frescos e evite desperdícios com o Mini Vedador de Alimentos USB! Compacto, prático e fácil de usar, ele sela embalagens de maneira rápida e segura, garantindo que suas comidas durem muito mais tempo. Perfeito para sacos plásticos, pacotes de biscoito, arroz, café e muito mais.
-
-Com design moderno e funcionamento via USB, você pode levar para qualquer lugar: casa, escritório ou viagens. Economize tempo, dinheiro e ganhe mais praticidade na sua rotina.
-
-Benefícios principais:
-
-Sela pacotes em segundos, mantendo alimentos frescos
-
-Compacto e portátil, fácil de guardar
-
-Funciona via USB, sem necessidade de pilhas
-
-Ideal para alimentos secos, grãos e snacks
-
-Confiança e segurança: Compra 100% segura, garantia de 7 dias e entrega rápida para todo o Brasil.</p>
-    <div class="preco">R$ 59,90</div>
-    <a class="btn-whatsapp" href="https://wa.me/5571992686345?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Mini%20Vedador%20de%20Alimentos%20USB%20do%20TelaShopee%20Nacional." target="_blank">💬 Tirar dúvidas</a>
-    <a class="btn-compra" href="https://telashopee.pay.yampi.com.br/r/SAZK48AYWL" target="_blank">🛒 Comprar Agora</a>
-  </div>
-</div>
-
-<div id="modal2" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="fecharModal('modal2')">&times;</span>
-    <h1 onclick="window.location.href='cortador.html'">Cortador de Legumes 7 em 1</h1>
-    <img src="cortador.jpg.jpeg" alt="Cortador de Legumes 7 em 1" onclick="window.location.href='cortador.html'">
-    <p>Transforme sua cozinha com o Cortador de Legumes 7 em 1! Corte, fatie, rale e prepare seus alimentos com praticidade e segurança, economizando tempo e espaço. Chega de perder tempo com facas ou utensílios complicados — tudo o que você precisa está em um único aparelho.
-
-Com lâminas de alta qualidade, resistentes e afiadas, você consegue resultados perfeitos para saladas, legumes refogados, sopas e receitas variadas. Fácil de montar, limpar e guardar, ele é ideal para cozinhas de todos os tamanhos.
-
-Benefícios principais:
-
-7 funções em um único utensílio
-
-Lâminas afiadas de aço inoxidável
-
-Seguro e prático para toda a família
-
-Fácil de limpar e armazenar
-
-Confiança e segurança: Compra 100% segura, garantia de 7 dias e entrega rápida para todo o Brasil.</p>
-    <div class="preco">R$ 79,90</div>
-    <a class="btn-whatsapp" href="https://wa.me/5571992686345?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Cortador%207%20em%201%20do%20TelaShopee%20Nacional." target="_blank">💬 Tirar dúvidas</a>
-    <a class="btn-compra" href="https://telashopee.pay.yampi.com.br/r/CO9LPR34IB" target="_blank">🛒 Comprar Agora</a>
-  </div>
-</div>
-
-<div id="modal3" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="fecharModal('modal3')">&times;</span>
-    <h1 onclick="window.location.href='suporte.html'">Suporte Giratório 360º</h1>
-    <img src="suporte.jpg.jpeg" alt="Suporte Giratório 360º" onclick="window.location.href='suporte.html'">
-    <p>Aproveite liberdade total ao usar seu celular com o Suporte Giratório 360º! Ideal para assistir vídeos, gravar conteúdos, fazer videochamadas ou usar o GPS, ele permite ajustar o ângulo perfeito sem precisar segurar o aparelho.
-
-Compatível com todos os modelos de celulares, ele oferece estabilidade, segurança e design moderno. Compacto e fácil de transportar, é perfeito para casa, carro ou escritório.
-
-Benefícios principais:
-
-Giratório 360º, ajuste total de ângulos
-
-Compatível com todos os celulares
-
-Seguro e resistente
-
-Ideal para vídeos, filmes e navegação GPS
-
-Confiança e segurança: Compra 100% segura, garantia de 7 dias e entrega rápida para todo o Brasil.</p>
-    <div class="preco">R$ 49,90</div>
-    <a class="btn-whatsapp" href="https://wa.me/5571992686345?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Suporte%20Giratório%20360º%20para%20Celular%20do%20TelaShopee%20Nacional." target="_blank">💬 Tirar dúvidas</a>
-    <a class="btn-compra" href="https://telashopee.pay.yampi.com.br/r/SQ1I901SQK" target="_blank">🛒 Comprar Agora</a>
-  </div>
-</div>
-
 <footer>
+  <div class="footer-left">
+    <a href="https://wa.me/5571992686345?text=Olá!%20Quero%20tirar%20dúvidas%20sobre%20os%20produtos%20do%20TelaShopee%20Nacional" target="_blank">💬 Tirar Dúvidas</a>
+  </div>
   <div class="footer-info">
     <span>✅ Compra 100% Segura</span>
     <span>✅ Garantia de 7 Dias</span>
     <span>✅ Entrega Rápida</span>
+    <span>TelaShopee Nacional © 2025 — Envio direto de fornecedores nacionais</span>
   </div>
-  <div style="margin-top:10px;">TelaShopee Nacional © 2025 — Envio direto de fornecedores nacionais</div>
 </footer>
-
-<script>
-  function abrirModal(id) { document.getElementById(id).style.display = 'flex'; }
-  function fecharModal(id) { document.getElementById(id).style.display = 'none'; }
-</script>
 
 </body>
 </html>
