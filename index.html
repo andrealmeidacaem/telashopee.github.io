@@ -16,80 +16,127 @@
     header {
       background-color: #ff6600;
       color: white;
-      padding: 20px;
+      padding: 25px 20px;
     }
 
     header h1 {
       margin: 0;
-      font-size: 1.8em;
+      font-size: 2em;
     }
 
     header p {
       margin: 5px 0 0;
-      font-size: 1em;
+      font-size: 1.1em;
     }
 
     .catalogo {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 20px;
-      padding: 20px;
-      max-width: 600px;
+      gap: 25px;
+      padding: 25px;
+      max-width: 900px;
       margin: 0 auto;
-    }
-
-    .produto {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      padding: 15px;
-    }
-
-    .produto img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    .produto h2 {
-      font-size: 1.2em;
-      margin: 10px 0 5px;
-      color: #222;
-    }
-
-    .produto p {
-      font-size: 0.95em;
-      color: #555;
-      margin-bottom: 10px;
-    }
-
-    .preco {
-      font-weight: bold;
-      color: #ff6600;
-      font-size: 1.1em;
-      margin-bottom: 10px;
-    }
-
-    .whatsapp-btn {
-      display: inline-block;
-      background-color: #25d366;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    footer {
-      background-color: #ff6600;
-      color: white;
-      padding: 10px;
-      margin-top: 30px;
-      font-size: 0.9em;
     }
 
     @media (min-width: 700px) {
       .catalogo {
         grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    .produto {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      padding: 20px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .produto:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    }
+
+    .produto img {
+      width: 100%;
+      border-radius: 15px;
+      max-height: 250px;
+      object-fit: cover;
+    }
+
+    .produto h2 {
+      font-size: 1.4em;
+      margin: 15px 0 10px;
+      color: #222;
+    }
+
+    .produto p {
+      font-size: 1em;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .preco {
+      font-weight: bold;
+      color: #ff6600;
+      font-size: 1.3em;
+      margin-bottom: 15px;
+    }
+
+    .btn-whatsapp, .btn-compra {
+      display: inline-block;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 10px;
+      padding: 12px 20px;
+      margin: 5px 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-whatsapp {
+      background-color: #25d366;
+      color: white;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: #1ebe5d;
+      transform: scale(1.05);
+    }
+
+    .btn-compra {
+      background-color: #ff6600;
+      color: white;
+      font-size: 1.1em;
+      border: 2px solid #ff6600;
+    }
+
+    .btn-compra:hover {
+      background-color: white;
+      color: #ff6600;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #ff6600;
+      color: white;
+      padding: 20px 10px;
+      margin-top: 30px;
+      font-size: 0.95em;
+    }
+
+    .footer-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 600px) {
+      .footer-info {
+        flex-direction: row;
+        justify-content: space-around;
       }
     }
   </style>
@@ -102,37 +149,73 @@
 
   <section class="catalogo">
 
-    <div class="produto">
+    <div class="produto" onclick="abrirProduto('Mini Vedador de Alimentos USB','vedador.jpg.jpeg','Selou, tá fechado! Evite desperdício e guarde alimentos em segundos.','R$ 59,90','https://wa.me/5571992686345?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Mini%20Vedador%20de%20Alimentos%20USB%20do%20TelaShopee%20Nacional.','https://telashopee.pay.yampi.com.br/r/SAZK48AYWL')">
       <img src="vedador.jpg.jpeg" alt="Mini Vedador de Alimentos" />
       <h2>Mini Vedador de Alimentos USB</h2>
       <p>Selou, tá fechado! Evite desperdício e guarde alimentos em segundos.</p>
       <div class="preco">R$ 59,90</div>
-      <a class="whatsapp-btn" href="https://wa.me/5571992686345?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Mini%20Vedador%20de%20Alimentos%20USB%20do%20TelaShopee%20Nacional.">💬 Falar com atendente no WhatsApp</a>
-    <a class="btn-checkout" href="https://telashopee.pay.yampi.com.br/r/SAZK48AYWL" target="_blank">🛒 Comprar Agora</a>
     </div>
 
-    <div class="produto">
+    <div class="produto" onclick="abrirProduto('Cortador de Legumes 7 em 1','cortador.jpg.jpeg','Corte, fatie e prepare tudo com praticidade e segurança.','R$ 79,90','https://wa.me/5571992686345?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Cortador%207%20em%201%20do%20TelaShopee%20Nacional.','https://telashopee.pay.yampi.com.br/r/CO9LPR34IB')">
       <img src="cortador.jpg.jpeg" alt="Cortador de Legumes 7 em 1" />
       <h2>Cortador de Legumes 7 em 1</h2>
       <p>Corte, fatie e prepare tudo com praticidade e segurança.</p>
       <div class="preco">R$ 79,90</div>
-      <a class="whatsapp-btn" href="https://wa.me/5571992686345?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Cortador%207%20em%201%20do%20TelaShopee%20Nacional.">💬 Falar com atendente no WhatsApp</a>
-   <a class="btn-checkout" href="https://telashopee.pay.yampi.com.br/r/CO9LPR34IB" target="_blank">🛒 Comprar Agora</a>
     </div>
 
-    <div class="produto">
+    <div class="produto" onclick="abrirProduto('Suporte Giratório 360º','suporte.jpg.jpeg','Grave vídeos, assista filmes e use o GPS com liberdade total.','R$ 49,90','https://wa.me/5571992686345?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Suporte%20Giratório%20360º%20para%20Celular%20do%20TelaShopee%20Nacional.','https://telashopee.pay.yampi.com.br/r/SQ1I901SQK')">
       <img src="suporte.jpg.jpeg" alt="Suporte Giratório 360º para Celular" />
       <h2>Suporte Giratório 360º</h2>
       <p>Grave vídeos, assista filmes e use o GPS com liberdade total.</p>
       <div class="preco">R$ 49,90</div>
-      <a class="whatsapp-btn" href="https://wa.me/5571992686345?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Suporte%20Giratório%20360º%20para%20Celular%20do%20TelaShopee%20Nacional.">💬 Falar com atendente no WhatsApp</a>
-    <a class="btn-checkout" href="https://telashopee.pay.yampi.com.br/r/SQ1I901SQK" target="_blank">🛒 Comprar Agora</a>
     </div>
 
   </section>
 
   <footer>
-    TelaShopee Nacional © 2025 — Envio direto de fornecedores nacionais
+    <div class="footer-info">
+      <span>✅ Compra 100% Segura</span>
+      <span>✅ Garantia de 7 Dias</span>
+      <span>✅ Entrega Rápida</span>
+    </div>
+    <div style="margin-top:10px;">TelaShopee Nacional © 2025 — Envio direto de fornecedores nacionais</div>
   </footer>
+
+  <script>
+    function abrirProduto(nome, img, descricao, preco, whatsapp, compra) {
+      const novaAba = window.open('', '_blank');
+      novaAba.document.write(`
+        <html lang="pt-BR">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>${nome}</title>
+          <style>
+            body { font-family: Arial, sans-serif; margin:0; background:#f9f9f9; text-align:center; padding:20px;}
+            img { max-width:100%; border-radius:15px; margin-bottom:20px;}
+            h1 { color:#ff6600; margin-bottom:10px; }
+            p { font-size:1.1em; color:#555; margin-bottom:15px;}
+            .preco { font-size:1.5em; color:#ff6600; font-weight:bold; margin-bottom:20px;}
+            .btn-whatsapp, .btn-compra {
+              display:inline-block; margin:5px; text-decoration:none; font-weight:bold; padding:15px 25px; border-radius:12px; transition:0.2s;
+            }
+            .btn-whatsapp { background:#25d366; color:white; }
+            .btn-whatsapp:hover { background:#1ebe5d; transform:scale(1.05);}
+            .btn-compra { background:#ff6600; color:white; font-size:1.2em; border:3px solid #ff6600;}
+            .btn-compra:hover { background:white; color:#ff6600; transform:scale(1.05);}
+          </style>
+        </head>
+        <body>
+          <h1>${nome}</h1>
+          <img src="${img}" alt="${nome}">
+          <p>${descricao}</p>
+          <div class="preco">${preco}</div>
+          <a class="btn-whatsapp" href="${whatsapp}" target="_blank">💬 Tirar dúvidas no WhatsApp</a>
+          <a class="btn-compra" href="${compra}" target="_blank">🛒 Comprar Agora</a>
+        </body>
+        </html>
+      `);
+    }
+  </script>
 </body>
-      </html>
+</html>
