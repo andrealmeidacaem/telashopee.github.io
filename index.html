@@ -5,88 +5,120 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TelaShopee Nacional</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #f9f9f9; color: #333; text-align: center; }
-    header { background: #ff6600; color: white; padding: 25px 20px; }
-    header h1 { margin: 0; font-size: 2em; }
-    header p { margin: 5px 0 0; font-size: 1.1em; }
+    body { font-family: Arial, sans-serif; margin: 0; background-color: #f9f9f9; color: #333; text-align: center; }
+    header { background-color: #ff6600; color: white; padding: 20px; }
+    header h1 { margin: 0; font-size: 1.8em; }
+    header p { margin: 5px 0 0; font-size: 1em; }
 
-    .catalogo { display: grid; grid-template-columns: 1fr; gap: 25px; padding: 25px; max-width: 900px; margin: 0 auto; }
-    @media (min-width: 700px) { .catalogo { grid-template-columns: 1fr 1fr 1fr; } }
+    .catalogo {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
     .produto {
-      background: white; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      padding: 20px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 15px;
+      transition: transform 0.2s;
     }
-    .produto:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.2); }
-    .produto img { width: 100%; border-radius: 15px; max-height: 250px; object-fit: cover; }
-    .produto h2 { font-size: 1.4em; margin: 15px 0 10px; color: #222; text-decoration: underline; }
-    .produto p { font-size: 1em; color: #555; margin-bottom: 15px; }
-    .preco { font-weight: bold; color: #ff6600; font-size: 1.3em; margin-bottom: 15px; }
 
-    .btn-compra { display: inline-block; text-decoration: none; font-weight: bold; border-radius: 10px;
-      padding: 12px 20px; margin: 5px 0; transition: background 0.2s, transform 0.2s;
-      background-color: #ff6600; color: white; font-size: 1.1em; border: 2px solid #ff6600; }
-    .btn-compra:hover { background: white; color: #ff6600; transform: scale(1.05); }
+    .produto:hover { transform: scale(1.02); }
+    .produto img { width: 100%; border-radius: 10px; cursor: pointer; }
+    .produto h2 { font-size: 1.2em; margin: 10px 0 5px; color: #222; cursor: pointer; }
+    .produto p { font-size: 0.95em; color: #555; margin-bottom: 10px; }
+    .preco { font-weight: bold; color: #ff6600; font-size: 1.1em; margin-bottom: 10px; }
+
+    .btn-checkout, .whatsapp-btn {
+      display: inline-block;
+      background-color: #ff6600;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 5px;
+    }
+
+    .whatsapp-btn { background-color: #25d366; }
 
     footer {
-      background-color: #ff6600; color: white; padding: 25px 15px; font-size: 1em; display: flex;
-      flex-direction: column; align-items: flex-start; gap: 10px;
+      background-color: #ff6600;
+      color: white;
+      padding: 20px;
+      margin-top: 30px;
+      font-size: 1.1em;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
     }
 
-    .footer-info { font-weight: bold; font-size: 1.1em; display: flex; flex-direction: column; gap: 5px; }
-    .footer-left { margin-bottom: 10px; }
-    .footer-left a { background: #25d366; color: white; padding: 10px 15px; border-radius: 8px; text-decoration: none; font-weight: bold; }
+    .footer-left a {
+      background-color: #25d366;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-    @media(min-width: 600px){ footer { flex-direction: row; justify-content: space-between; align-items: center; } }
+    .footer-info { font-weight: bold; }
+    @media (min-width: 700px) {
+      .catalogo { grid-template-columns: 1fr 1fr 1fr; }
+      footer { flex-direction: row; justify-content: space-between; align-items: center; }
+    }
   </style>
 </head>
 <body>
+  <header>
+    <h1>TelaShopee Nacional</h1>
+    <p>Produtos que bombam na internet com entrega rápida no Brasil 🇧🇷</p>
+  </header>
 
-<header>
-  <h1>TelaShopee Nacional</h1>
-  <p>Produtos que bombam na internet com entrega rápida no Brasil 🇧🇷</p>
-</header>
+  <section class="catalogo">
 
-<section class="catalogo">
-  <!-- Produto 1 -->
-  <div class="produto">
-    <a href="vedador.html"><img src="vedador.jpg.jpeg" alt="Mini Vedador de Alimentos"></a>
-    <a href="vedador.html"><h2>Mini Vedador de Alimentos USB</h2></a>
-    <p>Selou, tá fechado! Evite desperdício e guarde alimentos em segundos.</p>
-    <div class="preco">R$ 59,90</div>
-    <a class="btn-compra" href="vedador.html">🛒 Ver Detalhes</a>
-  </div>
+    <div class="produto">
+      <a href="vedador.html"><img src="vedador.jpg.jpeg" alt="Mini Vedador de Alimentos" /></a>
+      <a href="vedador.html"><h2>Mini Vedador de Alimentos USB</h2></a>
+      <p>Selou, tá fechado! Evite desperdício e guarde alimentos em segundos.</p>
+      <div class="preco">R$ 59,90</div>
+      <a class="whatsapp-btn" href="https://wa.me/5571992686345?text=Olá! Quero saber mais sobre o Mini Vedador de Alimentos USB.">💬 Falar no WhatsApp</a>
+      <a class="btn-checkout" href="https://mpago.li/15vcVbT" target="_blank">🛒 Comprar Agora</a>
+    </div>
 
-  <!-- Produto 2 -->
-  <div class="produto">
-    <a href="cortador.html"><img src="cortador.jpg.jpeg" alt="Cortador de Legumes 7 em 1"></a>
-    <a href="cortador.html"><h2>Cortador de Legumes 7 em 1</h2></a>
-    <p>Corte, fatie e prepare tudo com praticidade e segurança.</p>
-    <div class="preco">R$ 79,90</div>
-    <a class="btn-compra" href="cortador.html">🛒 Ver Detalhes</a>
-  </div>
+    <div class="produto">
+      <a href="cortador.html"><img src="cortador.jpg.jpeg" alt="Cortador de Legumes 7 em 1" /></a>
+      <a href="cortador.html"><h2>Cortador de Legumes 7 em 1</h2></a>
+      <p>Corte, fatie e prepare tudo com praticidade e segurança.</p>
+      <div class="preco">R$ 79,90</div>
+      <a class="whatsapp-btn" href="https://wa.me/5571992686345?text=Olá! Quero saber mais sobre o Cortador de Legumes 7 em 1.">💬 Falar no WhatsApp</a>
+      <a class="btn-checkout" href="https://mpago.li/1ggG6BG" target="_blank">🛒 Comprar Agora</a>
+    </div>
 
-  <!-- Produto 3 -->
-  <div class="produto">
-    <a href="suporte.html"><img src="suporte.jpg.jpeg" alt="Suporte Giratório 360º"></a>
-    <a href="suporte.html"><h2>Suporte Giratório 360º</h2></a>
-    <p>Grave vídeos, assista filmes e use o GPS com liberdade total.</p>
-    <div class="preco">R$ 49,90</div>
-    <a class="btn-compra" href="suporte.html">🛒 Ver Detalhes</a>
-  </div>
-</section>
+    <div class="produto">
+      <a href="suporte.html"><img src="suporte.jpg.jpeg" alt="Suporte Giratório 360º" /></a>
+      <a href="suporte.html"><h2>Suporte Giratório 360º</h2></a>
+      <p>Grave vídeos, assista filmes e use o GPS com liberdade total.</p>
+      <div class="preco">R$ 49,90</div>
+      <a class="whatsapp-btn" href="https://wa.me/5571992686345?text=Olá! Quero saber mais sobre o Suporte Giratório 360º.">💬 Falar no WhatsApp</a>
+      <a class="btn-checkout" href="https://mpago.li/1knHBvy" target="_blank">🛒 Comprar Agora</a>
+    </div>
 
-<footer>
-  <div class="footer-left">
-    <a href="https://wa.me/5571992686345?text=Olá!%20Quero%20tirar%20dúvidas%20sobre%20os%20produtos%20do%20TelaShopee%20Nacional" target="_blank">💬 Tirar Dúvidas</a>
-  </div>
-  <div class="footer-info">
-    <span>✅ Compra 100% Segura</span>
-    <span>✅ Garantia de 7 Dias</span>
-    <span>✅ Entrega Rápida</span>
-    <span>TelaShopee Nacional © 2025 — Envio direto de fornecedores nacionais</span>
-  </div>
-</footer>
+  </section>
 
+  <footer>
+    <div class="footer-left">
+      <a href="https://wa.me/5571992686345?text=Olá!%20Preciso%20de%20ajuda%20com%20um%20produto%20da%20TelaShopee.">💬 Tirar Dúvidas</a>
+    </div>
+    <div class="footer-info">
+      ✅ Compra 100% Segura | ✅ Garantia de 7 Dias | ✅ Entrega Rápida <br>
+      TelaShopee Nacional © 2025 — Envio direto de fornecedores nacionais
+    </div>
+  </footer>
 </body>
 </html>
